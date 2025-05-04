@@ -55,7 +55,7 @@ fun AppNavigation() {
 
         composable(
             route = Screen.Detail.route,
-            arguments = listOf(navArgument("noteId") { type = NavType.StringType })
+            arguments = listOf(navArgument("noteId") { type = NavType.IntType })
         ) { backStackEntry ->
             val noteId = backStackEntry.arguments?.getInt("noteId") ?: -1
             ItemScreen(

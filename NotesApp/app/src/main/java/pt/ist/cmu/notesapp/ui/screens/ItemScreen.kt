@@ -56,6 +56,13 @@ fun ItemScreen(
                 .fillMaxSize()
         ) {
             if (note != null) {
+                // Display item ID
+                Text(
+                    text = "Note ID: $noteId",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+
                 // Display note title
                 Text(
                     text = note.title,
