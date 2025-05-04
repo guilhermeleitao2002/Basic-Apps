@@ -107,14 +107,7 @@ fun AppNavigation() {
     }
 }
 
-// Sample data class for notes
-data class NoteItem(
-    val id: Int,
-    val title: String,
-    val description: String
-)
-
-// Sample data
+// Example Sample data
 val sampleNotes = listOf(
     NoteItem(1, "Shopping List", "Milk, eggs, bread, and vegetables"),
     NoteItem(2, "Work Tasks", "Finish project proposal by Friday"),
@@ -336,7 +329,7 @@ fun SettingsScreen(
                 description = "Enable dark theme for the app",
                 checked = darkModeEnabled,
                 onCheckedChange = { darkModeEnabled = it }
-            )
+            ).DisplaySetting()
 
             // Notifications setting
             SettingItem(
@@ -344,7 +337,7 @@ fun SettingsScreen(
                 description = "Enable push notifications for reminders",
                 checked = notificationsEnabled,
                 onCheckedChange = { notificationsEnabled = it }
-            )
+            ).DisplaySetting()
 
             // Auto-save setting
             SettingItem(
@@ -352,48 +345,7 @@ fun SettingsScreen(
                 description = "Automatically save notes while typing",
                 checked = autoSaveEnabled,
                 onCheckedChange = { autoSaveEnabled = it }
-            )
-        }
-    }
-}
-
-@Composable
-fun SettingItem(
-    title: String,
-    description: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
-) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
-
-            Switch(
-                checked = checked,
-                onCheckedChange = onCheckedChange
-            )
+            ).DisplaySetting()
         }
     }
 }
