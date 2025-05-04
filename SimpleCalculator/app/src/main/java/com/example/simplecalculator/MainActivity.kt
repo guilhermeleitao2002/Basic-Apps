@@ -1,6 +1,5 @@
 package com.example.simplecalculator
 
-// Imports
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,7 +27,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Main Activity
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,9 +69,13 @@ class MainActivity : ComponentActivity() {
                         Row {
                             Button(
                                 onClick = {
-                                    val numA = a.toDoubleOrNull() ?: 0.0
-                                    val numB = b.toDoubleOrNull() ?: 0.0
-                                    result = (numA + numB).toString()
+                                    if (a.isEmpty() || b.isEmpty()) {
+                                        result = "Both fields are required"
+                                    } else {
+                                        val numA = a.toDouble()
+                                        val numB = b.toDouble()
+                                        result = (numA + numB).toString()
+                                    }
                                 }
                             ) {
                                 Text("+")
@@ -83,9 +85,13 @@ class MainActivity : ComponentActivity() {
 
                             Button(
                                 onClick = {
-                                    val numA = a.toDoubleOrNull() ?: 0.0
-                                    val numB = b.toDoubleOrNull() ?: 0.0
-                                    result = (numA - numB).toString()
+                                    if (a.isEmpty() || b.isEmpty()) {
+                                        result = "Both fields are required"
+                                    } else {
+                                        val numA = a.toDouble()
+                                        val numB = b.toDouble()
+                                        result = (numA - numB).toString()
+                                    }
                                 }
                             ) {
                                 Text("-")
@@ -95,9 +101,13 @@ class MainActivity : ComponentActivity() {
 
                             Button(
                                 onClick = {
-                                    val numA = a.toDoubleOrNull() ?: 0.0
-                                    val numB = b.toDoubleOrNull() ?: 0.0
-                                    result = (numA * numB).toString()
+                                    if (a.isEmpty() || b.isEmpty()) {
+                                        result = "Both fields are required"
+                                    } else {
+                                        val numA = a.toDouble()
+                                        val numB = b.toDouble()
+                                        result = (numA * numB).toString()
+                                    }
                                 }
                             ) {
                                 Text("×")
@@ -107,12 +117,16 @@ class MainActivity : ComponentActivity() {
 
                             Button(
                                 onClick = {
-                                    val numA = a.toDoubleOrNull() ?: 0.0
-                                    val numB = b.toDoubleOrNull() ?: 0.0
-                                    result = if (numB != 0.0) {
-                                        (numA / numB).toString()
+                                    if (a.isEmpty() || b.isEmpty()) {
+                                        result = "Both fields are required"
                                     } else {
-                                        "Error: Divide by zero"
+                                        val numA = a.toDouble()
+                                        val numB = b.toDouble()
+                                        result = if (numB != 0.0) {
+                                            (numA / numB).toString()
+                                        } else {
+                                            "Cannot divide by zero"
+                                        }
                                     }
                                 }
                             ) {
