@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.update
 
 class NoteRepository {
     private val _notes = MutableStateFlow<List<Note>>(emptyList())
+    private val _idCounter = MutableStateFlow(0)
     val notes: Flow<List<Note>> = _notes.asStateFlow()
 
     fun addNote(note: Note) {
@@ -16,9 +17,22 @@ class NoteRepository {
         }
     }
 
-    fun deleteNote(noteId: String) {
+    fun deleteNote(noteId: Int) {
         _notes.update { currentNotes ->
             currentNotes.filter { it.id != noteId }
         }
     }
+
+    fun getNoteById(noteId: Int): Note? {
+        return _notes.value.find { it.id == noteId }
+    }
+
+    fun incrementIdCounter() {
+        _idCounter.update { it + 1 }
+    }
+
+    fun getIdCounter(): Int {
+        return _idCounter.value
+    }
+
 }

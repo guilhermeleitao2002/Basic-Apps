@@ -26,13 +26,15 @@ import java.util.Locale
 @Composable
 fun NoteItem(
     note: Note,
+    onItemClick: (Int) -> Unit,
     onDeleteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(8.dp),
+        onClick = { onItemClick(note.id.toInt()) }
     ) {
         Row(
             modifier = Modifier
@@ -76,6 +78,8 @@ fun NoteItem(
                     contentDescription = "Delete Note"
                 )
             }
+
+            Spacer(modifier = Modifier.width(8.dp))
         }
     }
 }

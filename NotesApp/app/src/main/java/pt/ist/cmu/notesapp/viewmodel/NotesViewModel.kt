@@ -42,9 +42,11 @@ class NotesViewModel(
         }
 
         val newNote = Note(
+            id = repository.getIdCounter(),
             title = _noteTitle.value,
             content = _noteContent.value
         )
+        repository.incrementIdCounter()
 
         repository.addNote(newNote)
 
@@ -53,7 +55,11 @@ class NotesViewModel(
         _noteContent.update { "" }
     }
 
-    fun deleteNote(noteId: String) {
+    fun deleteNote(noteId: Int) {
         repository.deleteNote(noteId)
+    }
+
+    fun getNoteById(noteId: Int): Note? {
+        return repository.getNoteById(noteId)
     }
 }

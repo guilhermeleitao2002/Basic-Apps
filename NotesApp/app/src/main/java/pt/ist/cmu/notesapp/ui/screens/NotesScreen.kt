@@ -1,4 +1,3 @@
-
 package pt.ist.cmu.notesapp.ui.screens
 
 import androidx.compose.foundation.layout.Column
@@ -21,6 +20,7 @@ import pt.ist.cmu.notesapp.viewmodel.NotesViewModel
 
 @Composable
 fun NotesScreen(
+    onItemClick: (Int) -> Unit,
     viewModel: NotesViewModel = viewModel()
 ) {
     val notes by viewModel.notes.collectAsState()
@@ -55,6 +55,7 @@ fun NotesScreen(
                 ) { note ->
                     NoteItem(
                         note = note,
+                        onItemClick = onItemClick,
                         onDeleteClick = { viewModel.deleteNote(note.id) }
                     )
                 }
