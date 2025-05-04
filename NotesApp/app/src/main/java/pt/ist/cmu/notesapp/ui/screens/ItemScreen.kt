@@ -56,13 +56,6 @@ fun ItemScreen(
                 .fillMaxSize()
         ) {
             if (note != null) {
-                // Display item ID
-                Text(
-                    text = "Note ID: $noteId",
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(bottom = 16.dp)
-                )
-
                 // Display note title
                 Text(
                     text = note.title,
@@ -84,7 +77,7 @@ fun ItemScreen(
                 // Display it in a friendlier format than "Sun May 04 12:08:58 GMT+01:00 2025" -> "04/05/2025 12:08"
                 // Put at the end of the screen
                 Text(
-                    text = "Created at: ${note.formattedDate}",
+                    text = "Created at\n${note.formattedDate}",
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
                     color = MaterialTheme.colorScheme.primary,

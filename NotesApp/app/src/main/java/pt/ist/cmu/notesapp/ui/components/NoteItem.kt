@@ -66,7 +66,8 @@ fun NoteItem(
 
                 Text(
                     text = formattedDate,
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.align(Alignment.End)
                 )
             }
 
