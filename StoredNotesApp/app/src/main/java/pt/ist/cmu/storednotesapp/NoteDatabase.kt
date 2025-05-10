@@ -1,7 +1,6 @@
 package pt.ist.cmu.storednotesapp
 
 import android.content.Context
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
