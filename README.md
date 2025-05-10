@@ -59,6 +59,14 @@ Create, view and delete notes with a simple, clean interface.
 
 ---
 
+## 6. Stored Notes App
+
+A more simplified notes app with a focus on data persistence.
+
+<p align="center">
+  <img src="images/storednotesapp.jpg" alt="Stored Notes App – Create Note" width="300" style="margin-right:100px;"/>
+</p>
+
 ## Getting Started
 
 1. Clone this repository:
