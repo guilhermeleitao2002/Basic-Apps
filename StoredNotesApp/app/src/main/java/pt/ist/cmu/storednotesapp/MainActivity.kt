@@ -61,7 +61,7 @@ fun NoteScreen(viewModel: NoteViewModel = viewModel(), innerPadding: PaddingValu
     ) {
         Text(
             text = "Room Database Example",
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 16.dp, top = 50.dp, start = 16.dp)
         )
 
         // Input fields
